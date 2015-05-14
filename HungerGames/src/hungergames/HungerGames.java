@@ -7,7 +7,7 @@ package hungergames;
 
 import model.Map;
 import model.Player;
-import model.Items;
+
 
 
 /**
@@ -25,10 +25,6 @@ public class HungerGames {
         Map map = new Map();
         System.out.println(playerOne.toString());
         System.out.println(map.toString());
-        Items itemOne = new Items();
-        
-        String itemsInfo = itemOne.toString();
-        System.out.println(itemsInfo);
     }
     
 }
