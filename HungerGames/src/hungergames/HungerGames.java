@@ -8,6 +8,7 @@ package hungergames;
 import model.Map;
 import model.Player;
 import model.Items;
+import model.Location;
 
 
 /**
