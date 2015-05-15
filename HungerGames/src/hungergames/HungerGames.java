@@ -9,6 +9,7 @@ import model.Map;
 import model.Player;
 import model.Items;
 import model.Location;
+import model.Game;
 
 
 /**
@@ -24,8 +25,12 @@ public class HungerGames {
         // TODO code application logic here
         Player playerOne = new Player("test", true);
         Map map = new Map();
+        Game game = new Game();
+        
+        System.out.println(game.toString());
         System.out.println(playerOne.toString());
         System.out.println(map.toString());
+        
         Items itemOne = new Items();
         
         String itemsInfo = itemOne.toString();
