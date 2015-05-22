@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.hungergames;
+package hungergames;
 
 import model.Map;
 import model.Player;
