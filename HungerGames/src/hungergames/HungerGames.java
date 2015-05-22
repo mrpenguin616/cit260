@@ -26,15 +26,18 @@ public class HungerGames {
         Player playerOne = new Player("test", true);
         Map map = new Map();
         Game game = new Game();
+        Location locationOne = new Location();
+        Items itemOne = new Items();
         
+        
+        System.out.println(locationOne.toString());
         System.out.println(game.toString());
         System.out.println(playerOne.toString());
         System.out.println(map.toString());
+        System.out.println(itemOne.toString());
         
-        Items itemOne = new Items();
         
-        String itemsInfo = itemOne.toString();
-        System.out.println(itemsInfo);
+        
     }
     
 }
