@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -13,10 +14,17 @@ import java.util.Objects;
  * @author Casey
  */
 public class Location implements Serializable {
-    private int row;
-    private int column;
+    private int[] coordinatesXY;
     private boolean visited;
     private boolean hasTrap;
+    
+    public int[] getCoordinatesXY() {
+        return coordinatesXY;
+    }
+
+    public void setCoordinatesXY(int[] coordinatesXY) {
+        this.coordinatesXY = coordinatesXY;
+    }
 
     public boolean isHasTrap() {
         return hasTrap;
@@ -28,22 +36,6 @@ public class Location implements Serializable {
     private String description;
 
     public Location() {
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getColumn() {
-        return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
     }
 
     public boolean isVisited() {
@@ -63,18 +55,12 @@ public class Location implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited +", hasTrap=" + hasTrap + ", description=" + description + '}';
-    }
-
-    @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.row;
-        hash = 29 * hash + this.column;
-        hash = 29 * hash + (this.visited ? 1 : 0);
-        hash = 29 * hash + (this.hasTrap ? 1 : 0);
-        hash = 29 * hash + Objects.hashCode(this.description);
+        int hash = 5;
+        hash = 61 * hash + Arrays.hashCode(this.coordinatesXY);
+        hash = 61 * hash + (this.visited ? 1 : 0);
+        hash = 61 * hash + (this.hasTrap ? 1 : 0);
+        hash = 61 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -87,10 +73,7 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
-        if (this.row != other.row) {
-            return false;
-        }
-        if (this.column != other.column) {
+        if (!Arrays.equals(this.coordinatesXY, other.coordinatesXY)) {
             return false;
         }
         if (this.visited != other.visited) {
@@ -105,5 +88,10 @@ public class Location implements Serializable {
         return true;
     }
     
+      @Override
+    public String toString() {
+        return "Location{" + "coordinatesXY=" + coordinatesXY + ", visited=" + visited + ", hasTrap=" + hasTrap + ", description=" + description + '}';
+    }
+
     
 }
