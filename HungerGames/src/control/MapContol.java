@@ -63,7 +63,7 @@ public class MapContol {
     }
     
     public boolean isValidLocation(int[] location){
-        if(location[0] < 0 || location[1] < 0 || location[0] < MAP_X_MAX || location[1] < MAP_Y_MAX ){
+        if(location[0] < 0 || location[1] < 0 || location[0] > MAP_X_MAX || location[1] > MAP_Y_MAX ){
             return false;
         }
         return true;

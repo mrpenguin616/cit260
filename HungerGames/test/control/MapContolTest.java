@@ -95,13 +95,14 @@ public class MapContolTest {
     @Test
     public void testIsValidLocation() {
         System.out.println("isValidLocation");
-        int[] location = null;
+        int[] location = {9, 6};
         MapContol instance = new MapContol();
         boolean expResult = false;
         boolean result = instance.isValidLocation(location);
+        System.out.println("result - " + result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // fail("The test case is a prototype.");
     }
     
 }
