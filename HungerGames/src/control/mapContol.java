@@ -14,4 +14,17 @@ import model.Player;
  */
 public class mapContol {
     
+    public void move(Player player, Location location){
+        int[] newLocation = {location.getRow(), location.getColumn()};
+        player.setLocation(newLocation);
+        
+    }
+    public boolean locationHasTrap(Location location){
+        return location.isHasTrap();
+    }
+    
+    public void setTrap(Location location){
+        location.setHasTrap(true);
+    }
+    
 }

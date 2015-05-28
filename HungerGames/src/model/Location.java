@@ -16,6 +16,15 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
+    private boolean hasTrap;
+
+    public boolean isHasTrap() {
+        return hasTrap;
+    }
+
+    public void setHasTrap(boolean hasTrap) {
+        this.hasTrap = hasTrap;
+    }
     private String description;
 
     public Location() {
@@ -55,7 +64,7 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", description=" + description + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited +", hasTrap=" + hasTrap + ", description=" + description + '}';
     }
 
     @Override
@@ -64,6 +73,7 @@ public class Location implements Serializable {
         hash = 29 * hash + this.row;
         hash = 29 * hash + this.column;
         hash = 29 * hash + (this.visited ? 1 : 0);
+        hash = 29 * hash + (this.hasTrap ? 1 : 0);
         hash = 29 * hash + Objects.hashCode(this.description);
         return hash;
     }
@@ -84,6 +94,9 @@ public class Location implements Serializable {
             return false;
         }
         if (this.visited != other.visited) {
+            return false;
+        }
+        if (this.hasTrap != other.hasTrap) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
