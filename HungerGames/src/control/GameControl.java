@@ -29,7 +29,7 @@ public class GameControl {
     }
     
     public void initMap(){
-    
+     // dont know yet
     }
     
     

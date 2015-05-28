@@ -9,6 +9,8 @@ package control;
  *
  * @author mrpenguin616
  */
+
+// need work
 public class Encounter {
     
 }
