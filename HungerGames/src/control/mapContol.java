@@ -27,4 +27,18 @@ public class mapContol {
         location.setHasTrap(true);
     }
     
+    public void moveAllNPC(Player[] players){
+        for (Player player : players){
+            if (player.isIsNPC()){
+                int[] locationToChange = createRandomMovement(player.getLocation());
+                player.setLocation(locationToChange);
+            }
+        }
+    }
+        
+    public int[] createRandomMovement(int[] thing){
+        int[] temp = {1,2};
+        return temp;
+    }
+    
 }
