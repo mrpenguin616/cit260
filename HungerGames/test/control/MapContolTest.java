@@ -81,14 +81,14 @@ public class MapContolTest {
     @Test
     public void testCreateRandomMovement() {
         System.out.println("createRandomMovement");
-        int[] currentLocation = {3,2};
+        int[] currentLocation = {1 , 2};
         MapContol instance = new MapContol();
-        int[] expResult = {3 , 2};
-        int[] result = instance.createRandomMovement(currentLocation);
+        int[] expResult = {0 , 0};
+        System.out.println("currentLocation Before - " +Arrays.toString(currentLocation));
+        instance.createRandomMovement(currentLocation);
         // assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
             System.out.println("expResult - " + Arrays.toString(expResult) 
-                    + ", result - " + Arrays.toString(result) 
                     + ", currentLocation - " + Arrays.toString(currentLocation));
         //fail("The test case is a prototype.");
     }
@@ -99,7 +99,7 @@ public class MapContolTest {
     @Test
     public void testIsValidLocation() {
         System.out.println("isValidLocation");
-        int[] location = {3, 6};
+        int[] location = {1, 2};
         MapContol instance = new MapContol();
         boolean expResult = false;
         boolean result = instance.isValidLocation(location);
