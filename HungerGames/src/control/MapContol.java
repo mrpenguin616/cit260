@@ -43,7 +43,14 @@ public class MapContol {
             if (player.isIsNPC()){
                 int[] locationToChange = player.getLocation();
                 createRandomMovement(locationToChange);
+                if (isValidLocation(locationToChange)){
                 player.setLocation(locationToChange);
+                }else{
+                    player.setIsAlive(false);
+                    // add kill player stuff
+                }
+                // TODO add kill player if location is valid && player died if that happens
+              
             }
         }
     }
@@ -51,7 +58,6 @@ public class MapContol {
     // still working on
     public void createRandomMovement(int[] currentLocation){
         Random rand = new Random();
-        //int[] newLocation = currentLocation; // = currentLocation;
         // create a int 0 - 3 and will move a player to a new location based of that int
         int randInt =  ((rand.nextInt(12) * rand.nextInt(31)) % 4);
         System.out.println(randInt);
@@ -88,8 +94,9 @@ public class MapContol {
         return true;
     }
     
-    protected void encounter(){
+    private void encounter(){
     // TODO add logic to call encounter
+        
     }
     
     

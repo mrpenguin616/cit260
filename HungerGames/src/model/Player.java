@@ -19,6 +19,7 @@ public class Player implements Serializable {
     private boolean isAlive;
     private boolean isNPC;
     private String[] skills;
+    //private Item inventory;
 
     public Player(String name, boolean isNPC) {
         this.name = name;
