@@ -34,16 +34,27 @@ public class MapContol {
     
     // needs work
     // casey ?
-    public void setTrap(Location location, Player players){
+    public void setTrap(Location location, Player player){
         location.setHasTrap(true);
         int trapLevel;
-        if (Player.skill < 20) { // not sure how to fix the error.
+        
+        /*
+            this is a good idea and this is 2 ways we can fix it
+        
+            so we need to give locationa attribute so that we can have a trapLevel var
+        
+            we can create a new float or int trapLevel inside location and give it percentages or ints like below.
+        
+            after its created we can just call location.setTrapLevel(var);
+        */
+        */
+        if (player.skill < 20) { // not sure how to fix the error.
             trapLevel = 1; // i was thinking the trap level would determine the
             }              // chances of the trap succeding in killing the NPC
-        else if (Player.skill >= 20 && Player.skill < 25) {
+        else if (player.skill >= 20 && player.skill < 25) {
             trapLevel = 2; // for example, level 1 would be 25%, 2 would be 50% etc.
         }
-        else if (Player.skill >= 25 && Player.skill < 30) {
+        else if (player.skill >= 25 && player.skill < 30) {
             trapLevel = 3;
         }
         else {
