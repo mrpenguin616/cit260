@@ -108,5 +108,20 @@ public class MapContolTest {
         // TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of locationHasPlayer method, of class MapContol.
+     */
+    @Test
+    public void testLocationHasPlayer() {
+        System.out.println("locationHasPlayer");
+        Location location = null;
+        MapContol instance = new MapContol();
+        boolean expResult = false;
+        boolean result = instance.locationHasPlayer(location);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

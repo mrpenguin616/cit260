@@ -18,7 +18,7 @@ public class Player implements Serializable {
     private int[] location;
     private boolean isAlive;
     private boolean isNPC;
-    private String[] skills;
+    public int skill;
     //private Item inventory;
 
     public Player(String name, boolean isNPC) {
@@ -59,17 +59,17 @@ public class Player implements Serializable {
         this.isNPC = isNPC;
     }
 
-    public String[] getSkills() {
-        return skills;
+    public int getSkill() {
+        return skill;
     }
 
-    public void setSkills(String[] skills) {
-        this.skills = skills;
+    public void setSkill(int skill) {
+        this.skill = skill;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", location=" + location + "," + " isAlive=" + isAlive + ", isNPC=" + isNPC + ", "+ "skills=" + skills + '}';
+        return "Player{" + "name=" + name + ", location=" + location + "," + " isAlive=" + isAlive + ", isNPC=" + isNPC + ", "+ "skill=" + skill + '}';
     }
 
     @Override
@@ -79,7 +79,7 @@ public class Player implements Serializable {
         hash = 71 * hash + Arrays.hashCode(this.location);
         hash = 71 * hash + (this.isAlive ? 1 : 0);
         hash = 71 * hash + (this.isNPC ? 1 : 0);
-        hash = 71 * hash + Arrays.deepHashCode(this.skills);
+        hash = 71 * hash + this.skill;
         return hash;
     }
 
@@ -104,7 +104,7 @@ public class Player implements Serializable {
         if (this.isNPC != other.isNPC) {
             return false;
         }
-        if (!Arrays.deepEquals(this.skills, other.skills)) {
+        if (this.skill != other.skill) {
             return false;
         }
         return true;
