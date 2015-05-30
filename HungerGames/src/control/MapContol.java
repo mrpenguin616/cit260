@@ -47,7 +47,7 @@ public class MapContol {
         
             after its created we can just call location.setTrapLevel(var);
         */
-        */
+        
         if (player.skill < 20) { // not sure how to fix the error.
             trapLevel = 1; // i was thinking the trap level would determine the
             }              // chances of the trap succeding in killing the NPC
