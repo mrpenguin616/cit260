@@ -34,8 +34,21 @@ public class MapContol {
     
     // needs work
     // casey ?
-    public void setTrap(Location location){
+    public void setTrap(Location location, Player players){
         location.setHasTrap(true);
+        int trapLevel;
+        if (Player.skill < 20) { // not sure how to fix the error.
+            trapLevel = 1; // i was thinking the trap level would determine the
+            }              // chances of the trap succeding in killing the NPC
+        else if (Player.skill >= 20 && Player.skill < 25) {
+            trapLevel = 2; // for example, level 1 would be 25%, 2 would be 50% etc.
+        }
+        else if (Player.skill >= 25 && Player.skill < 30) {
+            trapLevel = 3;
+        }
+        else {
+            trapLevel = 4;
+        }
     }
     
     public void moveAllNPC(Player[] players){
