@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import model.Player;
@@ -13,7 +14,7 @@ import model.Player;
  *
  * @author mrpenguin616
  */
-public class Owner {
+public class Owner implements Serializable {
     
     public String name;
     public Date lastDatePlayed;
