@@ -55,9 +55,9 @@ public class MapContolTest {
     @Test
     public void testSetTrap() {
         System.out.println("setTrap");
-        Location location = null;
+        Location location = new Location();
         MapContol instance = new MapContol();
-        instance.setTrap(location);
+        // instance.setTrap(location);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -70,7 +70,7 @@ public class MapContolTest {
         System.out.println("moveAllNPC");
         Player[] players = null;
         MapContol instance = new MapContol();
-        instance.moveAllNPC(players);
+        // instance.moveAllNPC(players);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

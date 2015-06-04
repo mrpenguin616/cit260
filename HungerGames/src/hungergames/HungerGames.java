@@ -10,7 +10,8 @@ import model.Player;
 import model.Items;
 import model.Location;
 import model.Game;
-import control.MapContol;
+import veiw.StartProgramView;
+// import control.MapContol;
 
 
 /**
@@ -36,8 +37,12 @@ public class HungerGames {
         System.out.println(playerOne.toString());
         System.out.println(map.toString());
         System.out.println(itemOne.toString());
-       
-        
+
+        StartProgramView stp = new StartProgramView();
+        stp.startProgram();
+
+
+
         
     }
     
