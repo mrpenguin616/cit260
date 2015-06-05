@@ -25,25 +25,23 @@ public class HungerGames {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Player playerOne = new Player("test", true);
-        Map map = new Map();
-        Game game = new Game();
-        Location locationOne = new Location();
-        Items itemOne = new Items();
-
-
-        System.out.println(locationOne.toString());
-        System.out.println(game.toString());
-        System.out.println(playerOne.toString());
-        System.out.println(map.toString());
-        System.out.println(itemOne.toString());
+//        Player playerOne = new Player("test", true);
+//        Map map = new Map();
+//        Game game = new Game();
+//        Location locationOne = new Location();
+//        Items itemOne = new Items();
+//
+//
+//        System.out.println(locationOne.toString());
+//        System.out.println(game.toString());
+//        System.out.println(playerOne.toString());
+//        System.out.println(map.toString());
+//        System.out.println(itemOne.toString());
 
         StartProgramView stp = new StartProgramView();
         stp.startProgram();
-
-
-
-        
+        String name = stp.getPlayerName();
+        System.out.println(name);
     }
     
 }
