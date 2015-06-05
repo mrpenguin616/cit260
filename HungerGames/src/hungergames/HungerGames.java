@@ -7,6 +7,7 @@ package hungergames;
 
 import control.ProgramControl;
 import model.*;
+import veiw.MainMenuView;
 import veiw.StartProgramView;
 
 
@@ -35,12 +36,22 @@ public class HungerGames {
 //        System.out.println(itemOne.toString());
 
         StartProgramView stp = new StartProgramView();
+
+        // start the program
         stp.startProgram();
+
+        // get name
         String name = stp.getPlayerName();
         System.out.println(name);
+
+        // create the owner
         Owner owner = ProgramControl.createOwner(name);
 
-        System.out.println(owner);
+        // display welcome message
+        stp.displayWelcomeMessage(owner);
+
+        MainMenuView mmv =  new MainMenuView();
+        mmv.displayMainMenu();
 
     }
     

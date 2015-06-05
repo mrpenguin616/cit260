@@ -1,5 +1,7 @@
 package veiw;
 
+import model.Owner;
+
 import java.util.Scanner;
 
 /**
@@ -45,5 +47,7 @@ public class StartProgramView {
     }
 
 
-
+    public void displayWelcomeMessage(Owner owner) {
+        System.out.printf("Welcome to the Hunger Games %s%n", owner.getName());
+    }
 }
