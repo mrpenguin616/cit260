@@ -5,13 +5,9 @@
  */
 package hungergames;
 
-import model.Map;
-import model.Player;
-import model.Items;
-import model.Location;
-import model.Game;
+import control.ProgramControl;
+import model.*;
 import veiw.StartProgramView;
-// import control.MapContol;
 
 
 /**
@@ -42,6 +38,10 @@ public class HungerGames {
         stp.startProgram();
         String name = stp.getPlayerName();
         System.out.println(name);
+        Owner owner = ProgramControl.createOwner(name);
+
+        System.out.println(owner);
+
     }
     
 }
