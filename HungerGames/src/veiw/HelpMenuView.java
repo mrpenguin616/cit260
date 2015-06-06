@@ -6,6 +6,7 @@ import java.util.Scanner;
  * Created by mrpenguin616 on 6/6/15.
  */
 public class HelpMenuView {
+    // TODO fisish design for what help menus options are
     private final String HELP_MENU  = "%n*********************"
             + "%n*  Help Menu        *"
             + "%n*===================*"
@@ -15,7 +16,7 @@ public class HelpMenuView {
             + "%n*   -   *"
             + "%n*  E - Exit         *"
             + "%n*********************%n";
-
+    // TODO design the actual messages
     private final String[] MESSAGES = {
      "%n\t** Invalid Command  ** Pleas Try Again %n%n",
      "%n/t** Default Message  ** Inside displayMessage it works**"
