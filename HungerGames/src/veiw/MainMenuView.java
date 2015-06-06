@@ -1,5 +1,7 @@
 package veiw;
 
+import control.GameControl;
+
 import java.util.Scanner;
 
 /**
@@ -24,7 +26,7 @@ public class MainMenuView {
         do {
             System.out.printf(MAIN_MENU);
             String fullInput = this.getInput().trim();
-            input = fullInput.charAt(0);
+            input = fullInput.toUpperCase().charAt(0);
             doAction(input);
         }while(input != 'E');
     }
@@ -51,6 +53,7 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
+        GameControl.createNewGame();
         System.out.println("inside start new game");
     }
 
@@ -64,7 +67,8 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("inside  displayHelpMenu");
+        HelpMenuView hmv = new HelpMenuView();
+        hmv.displayHelpMenu();
     }
 
     private String getInput() {
