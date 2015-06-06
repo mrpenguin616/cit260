@@ -6,7 +6,15 @@ import java.util.Scanner;
  * Created by mrpenguin616 on 6/4/15.
  */
 public class MainMenuView {
-    private final String MAIN_MENU = "This is the menu";
+    private final String MAIN_MENU  = "%n*********************"
+                                    + "%n*  Main Menu        *"
+                                    + "%n*===================*"
+                                    + "%n*  N - New Game     *"
+                                    + "%n*  L - Load Game    *"
+                                    + "%n*  H - Help Menu    *"
+                                    + "%n*  S - Save Game    *"
+                                    + "%n*  E - Exit         *"
+                                    + "%n*********************%n";
 
     public MainMenuView() {
     }
@@ -14,7 +22,7 @@ public class MainMenuView {
     public void displayMainMenu(){
         char input;
         do {
-            System.out.println(MAIN_MENU);
+            System.out.printf(MAIN_MENU);
             String fullInput = this.getInput().trim();
             input = fullInput.charAt(0);
             doAction(input);
@@ -26,8 +34,8 @@ public class MainMenuView {
             case 'N':
                 this.startNewGame();
                 break;
-            case 'G':
-                this.getGame();
+            case 'L':
+                this.loadGame();
                 break;
             case 'S':
                 this.saveGame();
@@ -46,8 +54,8 @@ public class MainMenuView {
         System.out.println("inside start new game");
     }
 
-    private void getGame(){
-        System.out.println("inside getGame");
+    private void loadGame(){
+        System.out.println("inside loadGame");
     }
 
 
