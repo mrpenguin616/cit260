@@ -23,10 +23,10 @@ public class StartProgramView {
     }
 
     public String getPlayerName(){
-        Boolean valid = false;
+        //Boolean valid = false;
         String name = null;
         Scanner scan = new Scanner(System.in);
-        while (!valid){
+        while (true){
             // prompt for name
             System.out.println("Enter your desired name: ");
 

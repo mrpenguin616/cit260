@@ -8,7 +8,11 @@ package hungergames;
 import control.ProgramControl;
 import model.*;
 import veiw.MainMenuView;
+import veiw.MovementView;
 import veiw.StartProgramView;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 
 /**
@@ -37,6 +41,15 @@ public class HungerGames {
 
         StartProgramView stp = new StartProgramView();
 
+        Player testPlayer = new Player("name", true);
+        int[] thing = {1,2};
+        testPlayer.setLocation(thing);
+        System.out.println(Arrays.toString(testPlayer.getLocation()));
+
+        MovementView.displayMoveMenu(testPlayer);
+
+        System.out.println(Arrays.toString(testPlayer.getLocation()));
+
         // start the program
         stp.startProgram();
 
@@ -44,7 +57,7 @@ public class HungerGames {
         String name = stp.getPlayerName();
         System.out.println(name);
 
-        // create the owner
+        // create the owner'
         Owner owner = ProgramControl.createOwner(name);
 
         // display welcome message
