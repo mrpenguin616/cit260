@@ -12,7 +12,7 @@ public class MovementView {
     public static void displayMoveMenu(Player player){
         char input;
         String MOVE_MENU  =   "%n****************%n"
-                            + "%n*  Main Menu   *"
+                            + "%n*  Move Menu   *"
                             + "%n*==============*"
                             + "%n*  H - Up      *"
                             + "%n*  J - Down    *"
