@@ -1,11 +1,9 @@
 package veiw;
 
+import control.MapContol;
 import model.Location;
 import model.Player;
 
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -51,18 +49,39 @@ public class SetTrapView {
     }
 
     private static void attemptToSetTrap(Player player, Location location) {
-        displayQuestion();
+        displayQuestion();n
+                
         char input = getInput();
-        location.setHasTrap(calculateIsSucess(input, player, location));
+        int answer;
+        answer = convertInput(input);
+        MapContol.setTrap(location, player, answer);
     }
 
-    private static boolean calculateIsSucess(char input, Player player, Location location) {
-        //TODO figure a better way of doing this
+    private static int convertInput(char input) {
+        switch (input){
+            case 'A':
+                return 7;
+            case 'B':
+                return 13;
+            case 'C':
+                return 2;
+            case 'D':
+                return 17;
+            default:
+                return 5;
+        }
 
-        return false;
+
     }
 
     private static void displayQuestion() {
+        System.out.printf("Wheres the ducky come from on a tuesday?" +
+        "%nA - the store" +
+                        "%nB - the carnival"+
+                        "%nC - the thing"+
+                        "%nD - the lala land"+
+                        "%nE - It dont matter"
+        );
 
     }
 

@@ -9,6 +9,7 @@ import control.ProgramControl;
 import model.*;
 import veiw.MainMenuView;
 import veiw.MovementView;
+import veiw.SetTrapView;
 import veiw.StartProgramView;
 
 import java.lang.reflect.Array;
@@ -49,6 +50,14 @@ public class HungerGames {
         MovementView.displayMoveMenu(testPlayer);
 
         System.out.println(Arrays.toString(testPlayer.getLocation()));
+
+
+        SetTrapView stv = new SetTrapView();
+
+        Location location = new Location();
+        location.setCoordinatesXY(thing);
+        stv.displaySetTrap(testPlayer, location);
+
 
         // start the program
         stp.startProgram();
