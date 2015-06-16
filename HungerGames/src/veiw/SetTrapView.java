@@ -49,8 +49,8 @@ public class SetTrapView {
     }
 
     private static void attemptToSetTrap(Player player, Location location) {
-        displayQuestion();n
-                
+        displayQuestion();
+
         char input = getInput();
         int answer;
         answer = convertInput(input);

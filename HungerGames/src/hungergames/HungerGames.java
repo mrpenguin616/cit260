@@ -42,23 +42,6 @@ public class HungerGames {
 
         StartProgramView stp = new StartProgramView();
 
-        Player testPlayer = new Player("name", true);
-        int[] thing = {1,2};
-        testPlayer.setLocation(thing);
-        System.out.println(Arrays.toString(testPlayer.getLocation()));
-
-        MovementView.displayMoveMenu(testPlayer);
-
-        System.out.println(Arrays.toString(testPlayer.getLocation()));
-
-
-        SetTrapView stv = new SetTrapView();
-
-        Location location = new Location();
-        location.setCoordinatesXY(thing);
-        stv.displaySetTrap(testPlayer, location);
-
-
         // start the program
         stp.startProgram();
 
@@ -74,6 +57,22 @@ public class HungerGames {
 
         MainMenuView mmv =  new MainMenuView();
         mmv.displayMainMenu();
+
+        Player testPlayer = new Player("name", true);
+        int[] thing = {1,2};
+        testPlayer.setLocation(thing);
+        System.out.println(Arrays.toString(testPlayer.getLocation()));
+
+        MovementView.displayMoveMenu(testPlayer);
+
+        System.out.println(Arrays.toString(testPlayer.getLocation()));
+
+
+        SetTrapView stv = new SetTrapView();
+
+        Location location = new Location();
+        location.setCoordinatesXY(thing);
+        stv.displaySetTrap(testPlayer, location);
 
     }
     
