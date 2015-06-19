@@ -56,7 +56,7 @@ public class HungerGames {
         stp.displayWelcomeMessage(owner);
 
         MainMenuView mmv =  new MainMenuView();
-        mmv.displayMainMenu();
+        mmv.display();
 
         Player testPlayer = new Player("name", true);
         int[] thing = {1,2};

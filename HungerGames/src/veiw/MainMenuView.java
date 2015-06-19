@@ -1,38 +1,34 @@
 package veiw;
 
 import control.GameControl;
+import org.w3c.dom.views.*;
 
 import java.util.Scanner;
 
 /**
  * Created by mrpenguin616 on 6/4/15.
  */
-public class MainMenuView {
-    private final String MAIN_MENU  = "%n*********************"
-                                    + "%n*  Main Menu        *"
-                                    + "%n*===================*"
-                                    + "%n*  N - New Game     *"
-                                    + "%n*  L - Load Game    *"
-                                    + "%n*  H - Help Menu    *"
-                                    + "%n*  S - Save Game    *"
-                                    + "%n*  E - Exit         *"
-                                    + "%n*********************%n";
+public class MainMenuView extends View {
+
+
 
     public MainMenuView() {
+        super("%n*********************"
+                + "%n*  Main Menu        *"
+                + "%n*===================*"
+                + "%n*  N - New Game     *"
+                + "%n*  L - Load Game    *"
+                + "%n*  H - Help Menu    *"
+                + "%n*  S - Save Game    *"
+                + "%n*  E - Exit         *"
+                + "%n*********************%n");
     }
 
-    public void displayMainMenu(){
-        char input;
-        do {
-            System.out.printf(MAIN_MENU);
-            String fullInput = this.getInput().trim();
-            input = fullInput.toUpperCase().charAt(0);
-            doAction(input);
-        }while(input != 'E');
-    }
 
-    private void doAction(char input) {
-        switch (input){
+    public boolean doAction(Object obj) {
+        String input =(String) obj;
+        char value = input.toUpperCase().charAt(0);
+        switch (value){
             case 'N':
                 this.startNewGame();
                 break;
@@ -50,6 +46,7 @@ public class MainMenuView {
             default:
                 System.out.printf("%n\t** Invalid Command  ** Pleas Try Again %n%n");
         }
+        return true;
     }
 
     private void startNewGame() {
@@ -71,9 +68,4 @@ public class MainMenuView {
         hmv.displayHelpMenu();
     }
 
-    private String getInput() {
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
-        return input.trim();
-    }
 }
