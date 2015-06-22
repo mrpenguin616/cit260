@@ -69,7 +69,7 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", location=" + location + "," + " isAlive=" + isAlive + ", isNPC=" + isNPC + ", "+ "skill=" + skill + '}';
+        return "Player{" + "name=" + name + ", location=" + Arrays.toString(location) + "," + " isAlive=" + isAlive + ", isNPC=" + isNPC + ", "+ "skill=" + skill + '}';
     }
 
     @Override

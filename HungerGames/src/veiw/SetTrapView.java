@@ -9,52 +9,46 @@ import java.util.Scanner;
 /**
  * Created by mrpenguin616 on 6/11/15.
  */
-public class SetTrapView {
+public class SetTrapView extends View {
+    public Player player;
+    public Location location;
 
-    public static void displaySetTrap(Player player, Location location){
-        char input;
-        String SET_TRAP_MENU  =   "%n****************%n"
+    public SetTrapView(Player player, Location location){
+        super( "%n****************%n"
                 + "%n*  Set Trap    *"
                 + "%n*==============*"
                 + "%n*  A - Attempt *"
                 + "%n*  E - Exit    *"
-                + "%n****************%n";
-        while(true) {
-            System.out.printf(SET_TRAP_MENU);
-            //String fullInput = getInput().trim();
-            //input = fullInput.toUpperCase().charAt(0);
-            input = getInput();
-            if (!(true)) {
-                System.out.println("*** Not valid option *** Try again");
-                continue;
-            }
-            doAction(input, player, location);
-            break;
-        }
+                + "%n****************%n");
+        this.player = player;
+        this.location = location;
     }
 
-    private static void doAction(char input, Player player, Location location) {
+    @Override
+    public boolean doAction(Object obj) {
         // TODO add case to move players character
-
+        String stuff =(String) obj;
+        char input = stuff.toUpperCase().charAt(0);
         switch(input) {
             case 'A':
-                attemptToSetTrap(player, location);
+                attemptToSetTrap();
                 break;
             case 'E':
                 break;
             default:
                 break;
         }
-
+        return true;
     }
 
-    private static void attemptToSetTrap(Player player, Location location) {
+    public void attemptToSetTrap() {
         displayQuestion();
 
-        char input = getInput();
+        String stuff =(String) getInput();
+        char input = stuff.toUpperCase().charAt(0);
         int answer;
         answer = convertInput(input);
-        MapContol.setTrap(location, player, answer);
+        MapContol.setTrap(this.location, this.player, answer);
     }
 
     private static int convertInput(char input) {
@@ -84,13 +78,4 @@ public class SetTrapView {
         );
 
     }
-
-
-    private static char getInput() {
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
-        return input.toUpperCase().charAt(0);
-    }
-
-
 }

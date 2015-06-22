@@ -5,17 +5,9 @@ import java.util.Scanner;
 /**
  * Created by mrpenguin616 on 6/6/15.
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
     // TODO fisish design for what help menus options are
-    private final String HELP_MENU  = "%n*********************"
-            + "%n*  Help Menu        *"
-            + "%n*===================*"
-            + "%n*  G - Goal of game *"
-            + "%n*  C - Controls     *"
-            + "%n*   -   *"
-            + "%n*   -   *"
-            + "%n*  E - Exit         *"
-            + "%n*********************%n";
+
     // TODO design the actual messages
     private final String[] MESSAGES = {
      "%n\t** Invalid Command  ** Pleas Try Again %n%n",
@@ -23,21 +15,23 @@ public class HelpMenuView {
     };
 
     public HelpMenuView() {
+        super("%n*********************"
+                + "%n*  Help Menu        *"
+                + "%n*===================*"
+                + "%n*  G - Goal of game *"
+                + "%n*  C - Controls     *"
+                + "%n*   -   *"
+                + "%n*   -   *"
+                + "%n*  E - Exit         *"
+                + "%n*********************%n");
     }
 
-    public void displayHelpMenu(){
-        char input;
-        do {
-            System.out.printf(HELP_MENU);
-            String fullInput = this.getInput().trim();
-            input = fullInput.toUpperCase().charAt(0);
-            doAction(input);
-        }while(input != 'E');
-    }
 
-    private void doAction(char input) {
+    public boolean doAction(Object obj) {
         // TODO need design on what messages will be displayed
-        switch (input){
+        String input =(String) obj;
+        char value = input.toUpperCase().charAt(0);
+        switch (value){
             case 'G':
                 this.displayMessage(1);
                 break;
@@ -50,16 +44,10 @@ public class HelpMenuView {
                 //System.out.printf("%n\t** Invalid Command  ** Pleas Try Again %n%n");
                 this.displayMessage(0);
         }
+        return true;
     }
 
     private void displayMessage(int index){
         System.out.printf(MESSAGES[index]);
-    }
-
-
-    private String getInput() {
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
-        return input.trim();
     }
 }

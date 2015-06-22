@@ -7,10 +7,7 @@ package hungergames;
 
 import control.ProgramControl;
 import model.*;
-import veiw.MainMenuView;
-import veiw.MovementView;
-import veiw.SetTrapView;
-import veiw.StartProgramView;
+import veiw.*;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -63,16 +60,19 @@ public class HungerGames {
         testPlayer.setLocation(thing);
         System.out.println(Arrays.toString(testPlayer.getLocation()));
 
-        MovementView.displayMoveMenu(testPlayer);
+        MovementView mv = new MovementView(testPlayer);
+        mv.display();
 
         System.out.println(Arrays.toString(testPlayer.getLocation()));
 
-
-        SetTrapView stv = new SetTrapView();
-
         Location location = new Location();
         location.setCoordinatesXY(thing);
-        stv.displaySetTrap(testPlayer, location);
+        SetTrapView stv = new SetTrapView(testPlayer, location);
+        stv.display();
+
+        Player[] rtvPlayers = {testPlayer};
+        ViewRemainingTributesView rtv = new ViewRemainingTributesView(rtvPlayers);
+        rtv.display();
 
     }
     
