@@ -1,18 +1,18 @@
 package veiw;
 
 import control.GameControl;
-import org.w3c.dom.views.*;
-
-import java.util.Scanner;
+import model.Game;
+import model.Owner;
 
 /**
  * Created by mrpenguin616 on 6/4/15.
  */
 public class MainMenuView extends View {
 
+    private Owner owner;
+    private Game game;
 
-
-    public MainMenuView() {
+    public MainMenuView(Owner owner) {
         super("%n*********************"
                 + "%n*  Main Menu        *"
                 + "%n*===================*"
@@ -22,6 +22,8 @@ public class MainMenuView extends View {
                 + "%n*  S - Save Game    *"
                 + "%n*  E - Exit         *"
                 + "%n*********************%n");
+        this.owner = owner;
+        this.game = null;
     }
 
 
@@ -50,9 +52,14 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        GameControl.createNewGame();
-        System.out.println("inside start new game");
+        GameControl gc = new GameControl();
+        this.game = gc.createNewGame(this.owner);
+        owner.getMyPlayer().setLocation(new int[]{5,5});
+
     }
+
+    public Game getGame(){return this.game;}
+
 
     private void loadGame(){
         System.out.println("inside loadGame");

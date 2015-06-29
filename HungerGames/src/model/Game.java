@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 // import java.sql.Time;
 
@@ -14,52 +15,77 @@ import java.util.Arrays;
  * @author mrpenguin616
  */
 public class Game implements Serializable {
+    private int movesCount;
+    private Map map;
+    private Owner owner;
+    ArrayList<Player> tributes = new ArrayList<>();
 
-    public Game() {
-    
+    public Game(Owner owner) {
+        this.owner = owner;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public ArrayList<Player> getTributes() {
+        return tributes;
+    }
+
+    public void setTributes(ArrayList<Player> tributes) {
+        this.tributes = tributes;
+    }
+
+    public int getMovesCount() {
+        return movesCount;
+    }
+
+    public void setMovesCount(int movesCount) {
+        this.movesCount = movesCount;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     @Override
-    public String toString() {
-        return "Game{" + "remainingTributes=" + remainingTributes + '}';
-    }
-    private Player[] remainingTributes;
-    // private Time time;
-    // private int movesCount; 
-    
-    
-    public Player[] getRemainingTributes() {
-        return remainingTributes;
-    }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Game)) return false;
 
-    public void setRemainingTributes(Player[] remainingTributes) {
-        this.remainingTributes = remainingTributes;
+        Game game = (Game) o;
+
+        if (getMovesCount() != game.getMovesCount()) return false;
+        if (!getMap().equals(game.getMap())) return false;
+        if (!getOwner().equals(game.getOwner())) return false;
+        return getTributes().equals(game.getTributes());
+
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 11 * hash + Arrays.deepHashCode(this.remainingTributes);
-        return hash;
+        int result = getMovesCount();
+        result = 31 * result + getMap().hashCode();
+        result = 31 * result + getOwner().hashCode();
+        result = 31 * result + getTributes().hashCode();
+        return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (!Arrays.deepEquals(this.remainingTributes, other.remainingTributes)) {
-            return false;
-        }
-        return true;
+    public String toString() {
+        return "Game{" +
+                "movesCount=" + movesCount +
+                ", map=" + map +
+                ", owner=" + owner +
+                ", tributes=" + tributes +
+                '}';
     }
-    
-    
-    
-  
-    
 }

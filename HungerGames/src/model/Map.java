@@ -11,11 +11,23 @@ import java.util.Arrays;
  * @author mrpenguin616
  */
 public class Map implements Serializable {
-    private int rows;
-    private int col;
-    private int[][] board;
+    private int rows = 7;
+    private int cols  = 7;
+    private Location[][] board;
 
     public Map() {
+        this.board = new Location[rows][cols];
+        for(int i = 0; i < rows; i++) {
+            for (int j = 0; i < cols; i++) {
+                Location location = new Location();
+                int[] setLocationData = {i, j};
+                location.setCoordinatesXY(setLocationData);
+                location.setHasTrap(false);
+                location.setDescription("default as of now");
+                this.board[i][j] = location;
+            }
+        }
+
     }
     
     public int getRows() {
@@ -26,32 +38,32 @@ public class Map implements Serializable {
         this.rows = rows;
     }
 
-    public int getCol() {
-        return col;
+    public int getCols() {
+        return cols;
     }
 
-    public void setCol(int col) {
-        this.col = col;
+    public void setCols(int col) {
+        this.cols = col;
     }
 
-    public int[][] getBoard() {
+    public Location[][] getBoard() {
         return board;
     }
 
-    public void setBoard(int[][] board) {
+    public void setBoard(Location[][] board) {
         this.board = board;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "rows=" + rows + ", col=" + col + ", board=" + board + '}';
+        return "Map{" + "rows=" + rows + ", col=" + cols + ", board=" + Arrays.toString(board) + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 53 * hash + this.rows;
-        hash = 53 * hash + this.col;
+        hash = 53 * hash + this.cols;
         hash = 53 * hash + Arrays.deepHashCode(this.board);
         return hash;
     }
@@ -68,7 +80,7 @@ public class Map implements Serializable {
         if (this.rows != other.rows) {
             return false;
         }
-        if (this.col != other.col) {
+        if (this.cols != other.cols) {
             return false;
         }
         if (!Arrays.deepEquals(this.board, other.board)) {

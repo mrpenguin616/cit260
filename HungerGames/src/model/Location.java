@@ -90,7 +90,7 @@ public class Location implements Serializable {
     
       @Override
     public String toString() {
-        return "Location{" + "coordinatesXY=" + coordinatesXY + ", visited=" + visited + ", hasTrap=" + hasTrap + ", description=" + description + '}';
+        return "Location{" + "coordinatesXY=" + Arrays.toString(coordinatesXY) + ", visited=" + visited + ", hasTrap=" + hasTrap + ", description=" + description + '}';
     }
 
     

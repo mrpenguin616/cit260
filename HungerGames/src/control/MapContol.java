@@ -17,7 +17,13 @@ public class MapContol {
     
     public final int MAP_X_MAX = 7;
     public final int MAP_Y_MAX = 7;
-    
+
+    public static Map createMap(){
+        Map map = new Map();
+        //TODO nothing
+        return map;
+    }
+
     
     // TODO location occupied
     public void move(Player player, Location location){
