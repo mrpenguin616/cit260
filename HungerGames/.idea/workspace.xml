@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="261c39df-9682-40f3-8bae-1d97adbc9597" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/veiw/GameMenuView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/NamesEnum.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hungergames/TestingStuff.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Game.java" afterPath="$PROJECT_DIR$/src/model/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/control/GameControl.java" afterPath="$PROJECT_DIR$/src/control/GameControl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hungergames/HungerGames.java" afterPath="$PROJECT_DIR$/src/hungergames/HungerGames.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Location.java" afterPath="$PROJECT_DIR$/src/model/Location.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/veiw/MainMenuView.java" afterPath="$PROJECT_DIR$/src/veiw/MainMenuView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Map.java" afterPath="$PROJECT_DIR$/src/model/Map.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/control/MapContol.java" afterPath="$PROJECT_DIR$/src/control/MapContol.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Player.java" afterPath="$PROJECT_DIR$/src/model/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HungerGames.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -126,20 +115,23 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MapContol.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MapContol.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/control/MapContol.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-                  <folding />
+                <state vertical-scroll-proportion="0.764988">
+                  <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#847#848#0" expanded="true" />
+                    <element signature="e#890#891#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Map.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/model/Map.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.53956836">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
                   <folding />
                 </state>
@@ -200,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/model/Player.java" />
         <option value="$PROJECT_DIR$/src/model/LocationsEnum.java" />
         <option value="$PROJECT_DIR$/src/model/NamesEnum.java" />
-        <option value="$PROJECT_DIR$/src/control/MapContol.java" />
         <option value="$PROJECT_DIR$/src/control/GameControl.java" />
         <option value="$PROJECT_DIR$/src/model/Game.java" />
         <option value="$PROJECT_DIR$/src/hungergames/TestingStuff.java" />
@@ -209,6 +200,7 @@
         <option value="$PROJECT_DIR$/src/model/Location.java" />
         <option value="$PROJECT_DIR$/src/veiw/GameMenuView.java" />
         <option value="$PROJECT_DIR$/src/model/Map.java" />
+        <option value="$PROJECT_DIR$/src/control/MapContol.java" />
       </list>
     </option>
   </component>
@@ -689,12 +681,12 @@
       <workItem from="1435255136656" duration="5012000" />
       <workItem from="1435447033295" duration="153000" />
       <workItem from="1435525343102" duration="6749000" />
-      <workItem from="1435556914939" duration="2332000" />
+      <workItem from="1435556914939" duration="2949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54329000" />
+    <option name="totallyTimeSpent" value="54946000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1110,14 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/MapContol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/veiw/MovementView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1174,9 +1158,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53956836">
+        <state vertical-scroll-proportion="0.0">
           <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/MapContol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.764988">
+          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+          <folding>
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#890#891#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

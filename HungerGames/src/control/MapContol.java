@@ -7,6 +7,8 @@ package control;
 import model.Map;
 import model.Location;
 import model.Player;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -79,6 +81,15 @@ public class MapContol {
         }
         return false;
     }
+
+    public int sumAllSkills(ArrayList<Player> players){
+        int sum = 0;
+        for(Player player: players){
+            sum += player.getSkill();
+        }
+        return sum;
+    }
+
 
     public void moveAllNPC(Player[] players){
         for (Player player : players){
