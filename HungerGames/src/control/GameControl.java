@@ -8,6 +8,8 @@ import model.*;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
+
 import control.MapContol;
 
 /**
@@ -15,6 +17,7 @@ import control.MapContol;
  * @author mrpenguin616
  */
 public class GameControl {
+    Random rand = new Random();
     
     public static void gameSave(Game game){
         // add logic to save game
@@ -43,6 +46,7 @@ public class GameControl {
         for (int i = 0; i < 11; i++){
             Player player = new Player(NamesEnum.values()[i].name(), true);
             player.setLocation(NamesEnum.values()[i].getLocation());
+            player.setSkill(rand.nextInt(8));
             list.add(player);
         }
         return list;
