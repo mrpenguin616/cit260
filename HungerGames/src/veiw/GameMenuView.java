@@ -1,5 +1,6 @@
 package veiw;
 
+import control.MapContol;
 import model.Game;
 import model.Map;
 
@@ -20,6 +21,7 @@ public class GameMenuView extends View {
                 + "%n*  D - Display Map  *"
                 + "%n*  I - Inventory    *"
                 + "%n*  R - Remaining    *"
+                + "%n*  V - View Total SKills of Remaining    *"
                 + "%n*  H - Help Menu    *"
                 + "%n*  S - Save Game    *"
                 + "%n*  E - Exit Game    *"
@@ -44,6 +46,9 @@ public class GameMenuView extends View {
                 break;
             case 'H':
                 break;
+            case 'V':
+                viewTotalOfOthersSkills();
+                break;
             case 'R':
                 break;
             case 'S':
@@ -54,6 +59,12 @@ public class GameMenuView extends View {
                 System.out.printf("%n\t** Invalid Command  ** Pleas Try Again %n%n");
         }
         return true;
+    }
+
+    private void viewTotalOfOthersSkills() {
+        MapContol mc = new MapContol();
+        int total = mc.sumAllSkills(game.getTributes());
+        System.out.println("Total: " + total);
     }
 
     private void displayMap(Map map) {
