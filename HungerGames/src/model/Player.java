@@ -6,8 +6,8 @@
 package model;
 
 
+import java.awt.*;
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Objects;
 /**
  *
@@ -15,8 +15,9 @@ import java.util.Objects;
  */
 public class Player implements Serializable {
     private String name;
-    private int[] location;
+    //private int[] location;
     private boolean isAlive;
+    private Point point;
     private boolean isNPC;
     public int skill;
     //private Item inventory;
@@ -35,13 +36,13 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public int[] getLocation() {
+   /* public int[] getLocation() {
         return location;
     }
 
     public void setLocation(int[] location) {
         this.location = location;
-    }
+    }*/
 
     public boolean isIsAlive() {
         return isAlive;
@@ -69,14 +70,13 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", location=" + Arrays.toString(location) + "," + " isAlive=" + isAlive + ", isNPC=" + isNPC + ", "+ "skill=" + skill + '}';
+        return "Player{" + "name=" + name + ", + ," + " isAlive=" + isAlive + ", isNPC=" + isNPC + ", "+ "skill=" + skill + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 71 * hash + Objects.hashCode(this.name);
-        hash = 71 * hash + Arrays.hashCode(this.location);
         hash = 71 * hash + (this.isAlive ? 1 : 0);
         hash = 71 * hash + (this.isNPC ? 1 : 0);
         hash = 71 * hash + this.skill;
@@ -95,9 +95,7 @@ public class Player implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Arrays.equals(this.location, other.location)) {
-            return false;
-        }
+
         if (this.isAlive != other.isAlive) {
             return false;
         }
@@ -111,8 +109,11 @@ public class Player implements Serializable {
     }
 
 
+    public Point getPoint() {
+        return point;
+    }
 
-
-
-
+    public void setPoint(Point point) {
+        this.point = point;
+    }
 }

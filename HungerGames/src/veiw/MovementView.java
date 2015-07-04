@@ -1,7 +1,13 @@
 package veiw;
 
+import Exceptions.MapControlException;
+import control.MapContol;
+import model.Location;
+import model.Map;
 import model.Player;
 
+import java.awt.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -9,47 +15,69 @@ import java.util.Scanner;
  */
 public class MovementView extends View {
     private Player player;
+    private MapContol mc;
+    private Map map;
 
-    public MovementView(Player player){
-        super( "%n****************%n"
-                + "%n*  Move Menu   *"
-                + "%n*==============*"
-                + "%n*  H - Up      *"
-                + "%n*  J - Down    *"
-                + "%n*  K - Left    *"
-                + "%n*  L - Right   *"
-                + "%n*  N - Stay    *"
-                + "%n****************%n");
+    public MovementView(Player player, Map map){
+        super(
+                "%n****************%n"
+                        + "%n*  Move Menu   *"
+                        + "%n*==============*"
+                        + "%n*  H - Up      *"
+                        + "%n*  J - Down    *"
+                        + "%n*  K - Left    *"
+                        + "%n*  L - Right   *"
+                        + "%n*  N - Stay    *"
+                        + "%n****************%n");
         this.player = player;
+        this.mc = new MapContol();
+        this.map = map;
     }
+
 
     @Override
     public boolean doAction(Object obj) {
         // TODO add case to move players character
         String stuff =(String) obj;
         char input = stuff.toUpperCase().charAt(0);
-        int[] currentLocation = this.player.getLocation();
-        if (!(input == 'H' || input == 'J' || input == 'K' || input == 'L' || input == 'N')) {
+
+        if (!(input == 'H' || input == 'J' || input == 'K' || input == 'L' || input == 'N' || input == 'S')) {
             System.out.println("*** Not valid option *** Try again");
             return false;
         }
+
+        Point newPoint = player.getPoint();
         switch(input) {
             case 'H':
-                currentLocation[0]+=1;
+                newPoint.x -=1;
                 break;
             case 'J':
-                currentLocation[0]-=1;
+                newPoint.x +=1;
                 break;
             case 'K':
-                currentLocation[1]-=1;
+                newPoint.y -=1;
                 break;
             case 'L':
-                currentLocation[1]+=1;
+                newPoint.y +=1;
                 break;
+            case 'S':
+                displayCurrentLucation(player);
+                return false;
             default:
         }
-        player.setLocation(currentLocation);
+       try {
+           Point newPoint2 = new Point(-1,2);
+            mc.move(map, player, player.getPoint(), newPoint2);
+        } catch(MapControlException mc){
+            System.out.println(mc.getMessage());
+           return false;
+        }
+        displayCurrentLucation(player);
         return true;
+    }
+
+    private void displayCurrentLucation(Player player) {
+        System.out.println("Your location is (" + player.getPoint().x + ", " + player.getPoint().y + ").");
     }
 
 }

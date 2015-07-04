@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package control;
+import Exceptions.MapControlException;
 import model.Map;
 import model.Location;
 import model.Player;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -26,14 +29,40 @@ public class MapContol {
         return map;
     }
 
+    /*
+
+
+     */
+
     
-    // TODO location occupied
-    public void move(Player player, Location location){
-        int[] newLocation = location.getCoordinatesXY();
-        player.setLocation(newLocation);
-        
+    // TODO logic needs some work
+    public void move (Map map, Player player, Point oldPoint, Point newPoint)throws MapControlException{
+        Location[][] locations = map.getBoard();
+        if(isValidLocation(newPoint)){
+            updateLocation(locations, player, oldPoint, newPoint);
+        }else if(player.isIsNPC()){
+            throw new MapControlException("Cant move that way , its off the map");
+        }else{
+            player.setIsAlive(false);
+            updateLocation(locations, player, oldPoint);
+        }
+        map.setBoard(locations);
     }
-    
+
+    //Kills npcs that move off of the map
+    private void updateLocation(Location[][] locations, Player player, Point oldPoint) {
+            if (locations[oldPoint.x][oldPoint.y].getPlayer() != null) {
+                locations[oldPoint.x][oldPoint.y].setPlayer(null);
+            }
+    }
+    //moves any player and clears last location
+    private void updateLocation(Location[][] locations, Player player,Point oldPoint, Point newPoint){
+        locations[oldPoint.x][oldPoint.y].setPlayer(null);
+        locations[newPoint.x][newPoint.y].setPlayer(player);
+        player.setPoint(newPoint);
+    }
+
+
     // works 
     public boolean locationHasTrap(Location location){
         return location.isHasTrap();
@@ -91,7 +120,7 @@ public class MapContol {
     }
 
 
-    public void moveAllNPC(Player[] players){
+/*    public void moveAllNPC(ArrayList<Player> players){
         for (Player player : players){
             if (player.isIsNPC()){
                 int[] locationToChange = player.getLocation();
@@ -107,9 +136,9 @@ public class MapContol {
             }
         }
     }
-     
+     */
     // still working on
-    public void createRandomMovement(int[] currentLocation){
+/*    public void createRandomMovement(int[] currentLocation){
         Random rand = new Random();
         // create a int 0 - 3 and will move a player to a new location based of that int
         int randInt =  ((rand.nextInt(12) * rand.nextInt(31)) % 4);
@@ -132,7 +161,7 @@ public class MapContol {
             currentLocation[1] = -1;
         }
                        
-    }
+    }*/
     
     // TODO needs work
     // relationship between locaiont and play may need to change a bit
@@ -140,8 +169,8 @@ public class MapContol {
         return false;
     }
  
-    public boolean isValidLocation(int[] location){
-        if(location[0] < 0 || location[1] < 0 || location[0] > MAP_X_MAX || location[1] > MAP_Y_MAX ){
+    public boolean isValidLocation(Point point){
+        if(point.x < 0 || point.y < 0 || point.x > 7 || point.y > 7 ){
             return false;
         }
         return true;

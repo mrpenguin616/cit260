@@ -1,28 +1,31 @@
 package model;
 
+import java.awt.*;
+
 /**
  * Created by mrpenguin616 on 6/28/15.
  */
 public enum NamesEnum {
-    Dave(new int[]{2,3}),
-    Jeff(new int[]{3,5}),
-    Ken(new int[]{1,3}),
-    Sabo(new int[]{0,5}),
-    Flash(new int[]{2,1}),
-    Scooby(new int[]{7,2}),
-    Kat(new int[]{5,5}),
-    Jessica(new int[]{6,3}),
-    Frances(new int[]{6,6}),
-    Erica(new int[]{4,1}),
-    Kimbler(new int[]{6,5}),
-    TooLong(new int[]{1,1});
+    Dave(new Point(2,3)),
+    Jeff(new Point(3,5)),
+    Ken(new Point(3,7)),
+    Sabo(new Point(1,3)),
+    Flash(new Point(1,2)),
+    Scooby(new Point(7,2)),
+    Kat(new Point(5,5)),
+    Jessica(new Point(6,3)),
+    Frances(new Point(6,6)),
+    Erica(new Point(4,1)),
+    Kimbler(new Point(6,5)),
+    TooLong(new Point(1,1));
 
-    private int[] location;
+    private final Point point;
 
-    NamesEnum(int[] location) {
-        this.location = location;
+
+    NamesEnum(Point point) {
+        this.point = point;
     }
 
-    public int[] getLocation(){return this.location;}
+    public Point getPoint(){return this.point;}
 
 }

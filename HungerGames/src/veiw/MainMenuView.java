@@ -3,6 +3,7 @@ package veiw;
 import control.GameControl;
 import model.Game;
 import model.Owner;
+import model.Player;
 
 /**
  * Created by mrpenguin616 on 6/4/15.
@@ -54,7 +55,6 @@ public class MainMenuView extends View {
     private void startNewGame() {
         GameControl gc = new GameControl();
         this.game = gc.createNewGame(this.owner);
-        owner.getMyPlayer().setLocation(new int[]{5,5});
 
     }
 

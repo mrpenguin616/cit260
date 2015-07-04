@@ -14,17 +14,27 @@ import java.util.Objects;
  * @author Casey
  */
 public class Location implements Serializable {
-    private int[] coordinatesXY;
+    //private int[] coordinatesXY;
     private boolean visited;
     private boolean hasTrap;
-    
+    private Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    /*
     public int[] getCoordinatesXY() {
         return coordinatesXY;
     }
 
     public void setCoordinatesXY(int[] coordinatesXY) {
         this.coordinatesXY = coordinatesXY;
-    }
+    }*/
 
     public boolean isHasTrap() {
         return hasTrap;
@@ -57,7 +67,6 @@ public class Location implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 61 * hash + Arrays.hashCode(this.coordinatesXY);
         hash = 61 * hash + (this.visited ? 1 : 0);
         hash = 61 * hash + (this.hasTrap ? 1 : 0);
         hash = 61 * hash + Objects.hashCode(this.description);
@@ -73,9 +82,7 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
-        if (!Arrays.equals(this.coordinatesXY, other.coordinatesXY)) {
-            return false;
-        }
+
         if (this.visited != other.visited) {
             return false;
         }
@@ -90,7 +97,7 @@ public class Location implements Serializable {
     
       @Override
     public String toString() {
-        return "Location{" + "coordinatesXY=" + Arrays.toString(coordinatesXY) + ", visited=" + visited + ", hasTrap=" + hasTrap + ", description=" + description + '}';
+        return "Location{" + ", visited=" + visited + ", hasTrap=" + hasTrap + ", description=" + description + '}';
     }
 
     

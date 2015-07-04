@@ -45,7 +45,7 @@ public class GameControl {
         list.add(owner.getMyPlayer());
         for (int i = 0; i < 11; i++){
             Player player = new Player(NamesEnum.values()[i].name(), true);
-            player.setLocation(NamesEnum.values()[i].getLocation());
+            player.setPoint(NamesEnum.values()[i].getPoint());
             player.setSkill(rand.nextInt(8));
             list.add(player);
         }

@@ -58,7 +58,9 @@ public class HungerGames {
         Game game = mmv.getGame();
 
         GameMenuView gmv = new GameMenuView(game);
-        gmv.display();
+        for(int i = 0; i < 7; i++) {
+            gmv.display();
+        }
     }
     
 }

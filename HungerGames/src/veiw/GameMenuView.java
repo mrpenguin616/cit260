@@ -2,6 +2,7 @@ package veiw;
 
 import control.MapContol;
 import model.Game;
+import model.Location;
 import model.Map;
 
 import java.util.Arrays;
@@ -11,6 +12,8 @@ import java.util.Arrays;
  */
 public class GameMenuView extends View {
     private Game game;
+    private MapContol mc;
+    private MovementView mv;
 
     public GameMenuView(Game game){
         super(    "%n*********************"
@@ -27,6 +30,8 @@ public class GameMenuView extends View {
                 + "%n*  E - Exit Game    *"
                 + "%n*********************%n");
         this.game = game;
+        this.mc = new MapContol();
+        this.mv = new MovementView(game.getOwner().getMyPlayer(), game.getMap());
     }
 
     //TODO implement this later right now menu just shows
@@ -35,6 +40,7 @@ public class GameMenuView extends View {
         char value = input.toUpperCase().charAt(0);
         switch (value){
             case 'M':
+                mv.display();
                 break;
             case 'T':
                 break;
@@ -68,9 +74,10 @@ public class GameMenuView extends View {
     }
 
     private void displayMap(Map map) {
+        Location[][] locs = map.getBoard();
         for (int i = 0; i < map.getRows(); i++){
             for(int j = 0; j < map.getCols(); j++){
-                System.out.printf("[" + (map.getBoard()[i][j]).toString() + " ]");
+                System.out.printf("[" + locs[i][j] + " ]");
             }
             System.out.println();
         }

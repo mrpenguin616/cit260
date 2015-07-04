@@ -17,11 +17,11 @@ public class Map implements Serializable {
 
     public Map() {
         this.board = new Location[rows][cols];
-        for(int i = 0; i < rows; i++) {
-            for (int j = 0; i < cols; i++) {
+        for(int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
                 Location location = new Location();
-                int[] setLocationData = {i, j};
-                location.setCoordinatesXY(setLocationData);
+                //int[] setLocationData = {i, j};
+                //location.setCoordinatesXY(new int[]{i,j});
                 location.setHasTrap(false);
                 location.setDescription("default as of now");
                 this.board[i][j] = location;
