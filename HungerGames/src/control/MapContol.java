@@ -5,6 +5,7 @@
  */
 package control;
 import Exceptions.MapControlException;
+import Exceptions.SetTrapException;
 import model.Map;
 import model.Location;
 import model.Player;
@@ -40,11 +41,9 @@ public class MapContol {
         Location[][] locations = map.getBoard();
         if(isValidLocation(newPoint)){
             updateLocation(locations, player, oldPoint, newPoint);
-        }else if(player.isIsNPC()){
+        }
+        else{
             throw new MapControlException("Cant move that way , its off the map");
-        }else{
-            player.setIsAlive(false);
-            updateLocation(locations, player, oldPoint);
         }
         map.setBoard(locations);
     }
@@ -71,8 +70,8 @@ public class MapContol {
     
     // needs work
     // casey ?
-    public static void setTrap(Location location, Player player, int answer){
-        if (calculateWasSuccessful(answer)) {
+    public void setTrap(Location location, Player player, int answer)  throws SetTrapException {
+        if (calculateWasSuccessful(answer)){
             location.setHasTrap(true);
             int trapLevel;
         
@@ -85,6 +84,11 @@ public class MapContol {
         
             after its created we can just call location.setTrapLevel(var);
         */
+
+            if(!isValidLocation(player.getPoint())){
+                throw new SetTrapException();
+            }
+
 
             if (player.skill < 20) { // not sure how to fix the error.
                 trapLevel = 1; // i was thinking the trap level would determine the

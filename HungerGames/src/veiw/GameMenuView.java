@@ -4,6 +4,7 @@ import control.MapContol;
 import model.Game;
 import model.Location;
 import model.Map;
+import model.Player;
 
 import java.util.Arrays;
 
@@ -14,6 +15,8 @@ public class GameMenuView extends View {
     private Game game;
     private MapContol mc;
     private MovementView mv;
+    private SetTrapView stv;
+    private Player player;
 
     public GameMenuView(Game game){
         super(    "%n*********************"
@@ -30,8 +33,10 @@ public class GameMenuView extends View {
                 + "%n*  E - Exit Game    *"
                 + "%n*********************%n");
         this.game = game;
+        this.player = game.getOwner().getMyPlayer();
         this.mc = new MapContol();
         this.mv = new MovementView(game.getOwner().getMyPlayer(), game.getMap());
+        this.stv = new SetTrapView(this.player, this.game.getMap());
     }
 
     //TODO implement this later right now menu just shows
@@ -43,6 +48,7 @@ public class GameMenuView extends View {
                 mv.display();
                 break;
             case 'T':
+                stv.display();
                 break;
             case 'D':
                 //System.out.printf(this.game.getMap().toString());\

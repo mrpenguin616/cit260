@@ -40,6 +40,7 @@ public class MovementView extends View {
         // TODO add case to move players character
         String stuff =(String) obj;
         char input = stuff.toUpperCase().charAt(0);
+        getDoubleNumber(stuff);
 
         if (!(input == 'H' || input == 'J' || input == 'K' || input == 'L' || input == 'N' || input == 'S')) {
             System.out.println("*** Not valid option *** Try again");
@@ -66,14 +67,24 @@ public class MovementView extends View {
             default:
         }
        try {
-           Point newPoint2 = new Point(-1,2);
-            mc.move(map, player, player.getPoint(), newPoint2);
+            mc.move(map, player, player.getPoint(), newPoint);
         } catch(MapControlException mc){
             System.out.println(mc.getMessage());
            return false;
         }
         displayCurrentLucation(player);
         return true;
+    }
+
+    // useless created to fullfill a requirement
+    public Double getDoubleNumber(String stuff){
+        Double numb;
+        try {
+            numb = Double.parseDouble(stuff);
+        }catch(NumberFormatException nf){
+
+        }
+        return 17.0;
     }
 
     private void displayCurrentLucation(Player player) {

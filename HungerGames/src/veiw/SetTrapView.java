@@ -1,9 +1,12 @@
 package veiw;
 
+import Exceptions.SetTrapException;
 import control.MapContol;
 import model.Location;
+import model.Map;
 import model.Player;
 
+import java.awt.*;
 import java.util.Scanner;
 
 /**
@@ -11,9 +14,10 @@ import java.util.Scanner;
  */
 public class SetTrapView extends View {
     public Player player;
-    public Location location;
+    private Location location;
+    private MapContol mc;
 
-    public SetTrapView(Player player, Location location){
+    public SetTrapView(Player player, Map map){
         super( "%n****************%n"
                 + "%n*  Set Trap    *"
                 + "%n*==============*"
@@ -21,7 +25,9 @@ public class SetTrapView extends View {
                 + "%n*  E - Exit    *"
                 + "%n****************%n");
         this.player = player;
-        this.location = location;
+        Point p = player.getPoint();
+        this.location = map.getBoard()[p.x][p.y];
+        this.mc = new MapContol();
     }
 
     @Override
@@ -46,9 +52,14 @@ public class SetTrapView extends View {
 
         String stuff =(String) getInput();
         char input = stuff.toUpperCase().charAt(0);
-        int answer;
-        answer = convertInput(input);
-        MapContol.setTrap(this.location, this.player, answer);
+        int answer = -1;
+        answer = getIntNumber(stuff);
+
+        try {
+            mc.setTrap(this.location, this.player, answer);
+        }catch(SetTrapException st){
+            System.out.println("you failed");
+        }
     }
 
     private static int convertInput(char input) {
@@ -68,13 +79,19 @@ public class SetTrapView extends View {
 
     }
 
+    public int getIntNumber(String stuff){
+        int numb = 0;
+        try {
+            numb = Integer.parseInt(stuff);
+        }catch(NumberFormatException nf){
+            System.out.println("You didnt enter a number so we gave you a wrong one");
+        }
+        int[] Lost = {4,8,15,16,23,42};
+        return numb;
+    }
+
     private static void displayQuestion() {
-        System.out.printf("Wheres the ducky come from on a tuesday?" +
-        "%nA - the store" +
-                        "%nB - the carnival"+
-                        "%nC - the thing"+
-                        "%nD - the lala land"+
-                        "%nE - It dont matter"
+        System.out.printf("Enter one of the Lost numbers and see if they were magic?%n"
         );
 
     }
